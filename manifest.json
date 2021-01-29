@@ -1,0 +1,7 @@
+{
+  "name": "Codyhouse Color Importer",
+  "id": "937038545947750733",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html"
+}
