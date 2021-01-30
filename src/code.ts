@@ -7,15 +7,6 @@ function toTitleCase(str: string): string {
   );
 }
 
-function hexToRgb(hex: string): RGB | null {
-  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16) / 255,
-    g: parseInt(result[2], 16) / 255,
-    b: parseInt(result[3], 16) / 255
-  } : null;
-}
-
 function hslToRgb(h: number, s: number, l: number): RGB {
   s /= 100;
   l /= 100;
@@ -44,31 +35,36 @@ function hslToRgb(h: number, s: number, l: number): RGB {
   g += m;
   b += m;
 
+
   return { r, g, b };
 }
 
-
-const theme = /(?!:root, )?\[data-theme="([\w-_ ]+)"\] {/gm;
-const color = /@include defineColorHSL\(--color-([\w-_]+), (\d{1,3}), (\d{1,3})%, (\d{1,3})%\);/gm;
-
 figma.showUI(__html__);
-figma.ui.onmessage = msg => {
+figma.ui.onmessage = (msg) => {
   if (msg.type === 'codyhouse-color') {
+    let colorCount: number = 0;
+    let themeCount: number = 0;
     let currentTheme: string;
     for (let line of msg.scss.split("\n")) {
+      const theme = /(?!:root, )?\[data-theme="([\w-_ ]+)"\] {/gm;
+      const color = /@include defineColorHSL\(--color-([\w-_]+), ?(\d{1,3}), ?(\d{1,3})%, ?(\d{1,3})%\);?/gm;
+
       let result = theme.exec(line);
       if (result !== null) {
         currentTheme = result[1];
+        themeCount++;
       } else if (currentTheme !== null) {
         result = color.exec(line);
-        console.log(result);
         if (result !== null) {
           let paint = figma.createPaintStyle();
           paint.name = toTitleCase(currentTheme + '/' + result[1].replace(/-/gm, '/'));
           paint.paints = [{ type: 'SOLID', color: hslToRgb(+result[2], +result[3], +result[4]) }];
+          colorCount++;
         }
       }
     }
+
+    figma.notify(`🎨 Imported ${themeCount} theme${themeCount > 1 ? 's' : ''} and ${colorCount} color${colorCount > 1 ? 's' : ''}!`);
   }
   figma.closePlugin();
 }

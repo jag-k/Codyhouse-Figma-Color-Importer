@@ -4,21 +4,25 @@
     // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    {
-        "name": "Пререлиз",
-        "request": "launch",
-        "runtimeArgs": [
-            "run-script",
-            "publish"
-        ],
-        "runtimeExecutable": "npm",
-        "skipFiles": [
-            "<node_internals>/**"
-        ],
-        "type": "pwa-node"
-    },
         {
-            "type": "node",
+            "name": "Пререлиз",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "publish"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "**/node_modules/**"
+            ],
+            "type": "pwa-node"
+        },
+        {
+            "type": "pwa-node",
             "request": "launch",
             "name": "Вотчер",
             "runtimeExecutable": "npm",
@@ -40,6 +44,10 @@
             "runtimeExecutable": "npm",
             "skipFiles": [
                 "<node_internals>/**"
+            ],
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "**/node_modules/**"
             ],
             "type": "pwa-node"
         },
