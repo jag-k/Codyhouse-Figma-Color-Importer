@@ -35,4 +35,4 @@ This plugin can:
 [figma]: https://figma.com/
 [ch]: https://codyhouse.co/
 [colors]: https://codyhouse.co/ds/globals/colors
-[url]: https://figma.com/
+[url]: https://www.figma.com/community/plugin/937038545947750733
