@@ -1,6 +1,16 @@
-<form class="p-xxsmall form">
-  <h3 class="m-0 mb-xxsmall"><code class="code">SCSS</code><span> code:</span></h3>
-  <textarea class="textarea" id="scss" required rows="4"></textarea>
+<form class="form">
+  <label class="section-title" for="scss"><code class="code">SCSS</code>  code:</label>
+  <textarea class="ml-xxsmall mr-xxsmall textarea" id="scss" required rows="4"></textarea>
+  
+  <div class="switch">
+    <input id="circles" type="checkbox" class="switch__toggle" checked>
+    <label for="circles" class="switch__label">Genereate color circles</label>
+  </div>
 
-  <button class="button mt-xxsmall button--primary" type="submit">Generate Colors</button>
+  <div class="input input--with-icon size">
+    <div class="icon icon--adjust"></div>
+    <input type="number" min="10" max="500" class="input__field" id="size" placeholder="10-500" value="50">
+  </div>
+
+  <button class="button button--primary m-xxsmall" type="submit">Generate Colors</button>
 </form>

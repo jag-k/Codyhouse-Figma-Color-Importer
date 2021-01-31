@@ -3,10 +3,6 @@
     padding: var(--size-xxxsmall);
     font-weight: var(--font-weight-bold);
     background-color: var(--black1);
-    border-radius: var(--border-radius-small);
-    margin-right: var(--font-letter-spacing-pos-xsmall);
-}
-
-.m-0 {
-    margin: 0;
+    border-radius: var(--border-radius-med);
+    margin-right: var(--size-xxxsmall);
 }
