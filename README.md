@@ -2,7 +2,7 @@
 
 __Import your colors from [Codyhouse][ch] to [Figma][figma] like never before!__
 
-[<img src=".github/readme/Install%20to%20Figma.svg" alt="Install to Figma" width="198" height="80">][url]
+[<img src=".github/readme/Install to Figma.svg" alt="Install to Figma" width="198" height="80">][url]
 
 <img src=".github/readme/cover_art.png" width="100%" alt="Plugin Preview">
 
