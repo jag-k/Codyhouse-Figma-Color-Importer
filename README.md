@@ -1,4 +1,4 @@
-# <img src="./icon.png" height="30" width="30" aligin="center" justify="center" alt=""/> Codyhouse Figma Color Importer 🎨 
+# <img src="./icon.png" height="30" width="30" aligin="center" justify="center" alt=""/> Codyhouse Color Importer 🎨 
 
 __Import your colors from [Codyhouse][ch] to [Figma][figma] like never before!__
 
